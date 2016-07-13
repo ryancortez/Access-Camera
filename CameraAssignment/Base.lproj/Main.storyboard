@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Attach Image View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AttachImageViewController" customModule="CameraAssignment" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,49 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xLN-3i-12A">
+                                <rect key="frame" x="20" y="28" width="560" height="466"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6am-RS-c1r">
+                                <rect key="frame" x="20" y="502" width="560" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="gjW-Q7-maP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Save to Camera Roll"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2l-C4-nVb">
+                                <rect key="frame" x="20" y="28" width="560" height="466"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Tap to add a photo"/>
+                                <connections>
+                                    <action selector="imageViewPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3H3-Jk-ziU"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xLN-3i-12A" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="5bF-gh-06Y"/>
+                            <constraint firstItem="xLN-3i-12A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9Ir-ZM-G21"/>
+                            <constraint firstItem="xLN-3i-12A" firstAttribute="trailing" secondItem="U2l-C4-nVb" secondAttribute="trailing" id="D7z-5b-o0C"/>
+                            <constraint firstItem="U2l-C4-nVb" firstAttribute="leading" secondItem="6am-RS-c1r" secondAttribute="leading" id="E2V-DM-kyB"/>
+                            <constraint firstAttribute="bottom" secondItem="6am-RS-c1r" secondAttribute="bottom" constant="20" symbolic="YES" id="Zy3-wu-zRI"/>
+                            <constraint firstItem="U2l-C4-nVb" firstAttribute="top" secondItem="xLN-3i-12A" secondAttribute="top" id="gwF-OP-9MD"/>
+                            <constraint firstItem="U2l-C4-nVb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="hJ3-PI-nMH"/>
+                            <constraint firstItem="6am-RS-c1r" firstAttribute="top" secondItem="xLN-3i-12A" secondAttribute="bottom" constant="8" symbolic="YES" id="hNJ-HZ-c1P"/>
+                            <constraint firstItem="xLN-3i-12A" firstAttribute="leading" secondItem="U2l-C4-nVb" secondAttribute="leading" id="j2C-XZ-zM6"/>
+                            <constraint firstItem="6am-RS-c1r" firstAttribute="top" secondItem="U2l-C4-nVb" secondAttribute="bottom" constant="8" symbolic="YES" id="sOU-Mu-YgH"/>
+                            <constraint firstItem="U2l-C4-nVb" firstAttribute="trailing" secondItem="6am-RS-c1r" secondAttribute="trailing" id="xrf-Om-S9R"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="xLN-3i-12A" id="rd4-sX-XZW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="389"/>
         </scene>
     </scenes>
 </document>
