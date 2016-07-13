@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AttachImageViewController: UIViewController {
+class AttachImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var imageView: UIImageView!
     
@@ -19,9 +19,16 @@ class AttachImageViewController: UIViewController {
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 10.0
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.imageView.image = originalImage
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     @IBAction func imageViewPressed(sender: AnyObject) {
         let imagePickerView = UIImagePickerController()
+        imagePickerView.delegate = self
         self.presentViewController(imagePickerView, animated: true, completion: nil)
     }
 
