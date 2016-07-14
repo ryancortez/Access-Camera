@@ -36,6 +36,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Save to Camera Roll"/>
+                                <connections>
+                                    <action selector="saveToCameraButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SJZ-po-veR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
